@@ -1,20 +1,25 @@
-import { Post } from "./Post";
+import { Post } from "./components/Post";
+import { Header } from "./components/Header";
+import { Sidebar } from "./components/Sidebar";
+
+import styles from "./app.module.css";
+import "./global.css";
 
 function App() {
-  return (
-    <div>
-      <Post author="Diego framework" content="Lorem ipsum dolor"/>
-
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </div>
-  );
+	return (
+		<div>
+			<Header />
+			<div className={styles.wrapper}>
+				<Sidebar />
+				<main>
+					<Post
+						author="Fernando Rodrigues"
+						content="Lorem ipsum dolor opaop aopaopaopa"
+					/>
+				</main>
+			</div>
+		</div>
+	);
 }
 
 export default App;
