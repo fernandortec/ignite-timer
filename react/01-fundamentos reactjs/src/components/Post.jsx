@@ -22,17 +22,31 @@ export function Post() {
 			</header>
 
 			<div className={styles.content}>
+				<p>Fala galeraa 👋 </p>
 				<p>
-					Fala galeraa 👋 Acabei de subir mais um projeto no meu portifa. É um
+					Acabei de subir mais um projeto no meu portfólio. É um projeto que fiz
+					no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
 				</p>
 				<p>
-					projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto
+					<a href="nourl">jane.design/doctorcare</a>
 				</p>
-				<p>é DoctorCare 🚀 👉 jane.design/doctorcare #novoprojeto #nlw</p>
+
 				<p>
-					<a href="nourl">#novo projeto #nlw #rocketseat</a>
+					<a href="nourl">#novo </a>
+					<a href="nourl">#projeto </a>
+					<a href="nourl">#rocketseat </a>
+					<a href="nourl">#nlw </a>
 				</p>
 			</div>
+
+			<form className={styles.commentForm}>
+				<strong>Deixe seu feedback</strong>
+
+				<textarea placeholder="Deixe um comentário" />
+				<footer>
+					<button type="submit">Publicar</button>
+				</footer>
+			</form>
 		</article>
 	);
 }
