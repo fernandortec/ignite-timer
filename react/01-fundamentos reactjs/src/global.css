@@ -10,6 +10,8 @@
 
   --green-500: #00875f;
   --green-300: #00B37E;
+
+  --red-500: #F74A68;
 }
 
 :focus {
@@ -29,7 +31,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body, input, textarea, button {
+body,
+input,
+textarea,
+button {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 1rem;
