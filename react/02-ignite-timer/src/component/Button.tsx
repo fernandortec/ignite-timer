@@ -6,8 +6,8 @@ interface ButtonProps {
 
 export function Button({ variant = "primary" }: ButtonProps) {
 	return (
-		<S.ButtonContainer variant={variant}>
+		<S.Button variant={variant}>
 			<p>opa</p>
-		</S.ButtonContainer>
+		</S.Button>
 	);
 }
