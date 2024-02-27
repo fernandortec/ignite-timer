@@ -23,7 +23,7 @@ export const Button = styled.button<ButtonContainerProps>`
   width: 100px;
   height: 40px;
 
-	background-color: ${(props) => props.theme.primary};
+	background-color: ${(props) => props.theme["gray-100"]};
 	color: ${(props) => props.theme.white};
 
 `;
