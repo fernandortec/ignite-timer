@@ -1,11 +1,13 @@
+import * as S from './styles'
+
 import { Outlet } from 'react-router-dom'
-import { Header } from '../component/Header'
+import { Header } from '../component/header'
 
 export function DefaultLayout() {
   return (
-    <div>
+    <S.Layout>
       <Header />
       <Outlet />
-    </div>
+    </S.Layout>
   )
 }
