@@ -22,6 +22,7 @@ interface CyclesContextData {
   setSecondsPassed: (seconds: number) => void
   createNewCycle: (data: CreateCycleData) => void
   interruptCurrentCycle: () => void
+  cycles: Cycle[]
 }
 
 export const CyclesContext = createContext<CyclesContextData>({
@@ -31,6 +32,7 @@ export const CyclesContext = createContext<CyclesContextData>({
   setSecondsPassed: () => null,
   createNewCycle: () => null,
   interruptCurrentCycle: () => null,
+  cycles: [],
 })
 
 export function CyclesContextProvider({ children }: { children: ReactNode }) {
@@ -44,7 +46,7 @@ export function CyclesContextProvider({ children }: { children: ReactNode }) {
     setCycles((state) =>
       state.map((cycle) => {
         if (cycle.id === activeCycle?.id) {
-          return { ...cycle, interupteDate: new Date() }
+          return { ...cycle, finishedDate: new Date() }
         }
         return cycle
       }),
@@ -68,12 +70,19 @@ export function CyclesContextProvider({ children }: { children: ReactNode }) {
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
-
-    // form.reset()
   }
 
   const interruptCurrentCycle = () => {
     setActiveCycleId(null)
+
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycle?.id) {
+          return { ...cycle, interruptedDate: new Date() }
+        }
+        return cycle
+      }),
+    )
   }
 
   return (
@@ -86,6 +95,7 @@ export function CyclesContextProvider({ children }: { children: ReactNode }) {
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
+        cycles,
       }}
     >
       {children}

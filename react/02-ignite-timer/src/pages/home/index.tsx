@@ -28,12 +28,17 @@ export function Home() {
     },
   })
 
+  function handleCreateNewCycle(data: z.infer<typeof newCycleFormSchema>) {
+    createNewCycle(data)
+    form.reset()
+  }
+
   const task = form.watch('task')
   const isSubmitDisabled = !task
 
   return (
     <S.Home>
-      <form onSubmit={form.handleSubmit(createNewCycle)}>
+      <form onSubmit={form.handleSubmit(handleCreateNewCycle)}>
         <FormProvider {...form}>
           <NewCycleForm />
         </FormProvider>
@@ -41,11 +46,11 @@ export function Home() {
 
         {activeCycle ? (
           <S.StopCountdownButton
-            disabled={isSubmitDisabled}
+            disabled={!isSubmitDisabled}
             onClick={interruptCurrentCycle}
             type="button"
           >
-            <HandPalm size={24} /> Começar
+            <HandPalm size={24} /> Interromper
           </S.StopCountdownButton>
         ) : (
           <S.StartCountdownButton disabled={isSubmitDisabled} type="submit">

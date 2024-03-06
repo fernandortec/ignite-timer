@@ -6,7 +6,6 @@ import * as S from './styles'
 
 export function NewCycleForm() {
   const { activeCycle } = useContext(CyclesContext)
-
   const { register } = useFormContext()
 
   return (
@@ -33,7 +32,7 @@ export function NewCycleForm() {
         id="minutesAmount"
         placeholder="00"
         step={5}
-        min={1}
+        min={0}
         disabled={!!activeCycle}
         max={60}
         {...register('minutesAmount', { valueAsNumber: true })}
