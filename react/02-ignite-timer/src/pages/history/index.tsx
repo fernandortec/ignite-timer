@@ -3,8 +3,6 @@ import { useContext } from 'react'
 import { CyclesContext } from '../../context/CyclesContext'
 import * as S from './styles'
 
-import ptBR from 'date-fns/locale/pt-BR'
-
 export function History() {
   const { cycles } = useContext(CyclesContext)
 
@@ -30,7 +28,6 @@ export function History() {
                 <td>
                   {formatDistanceToNow(new Date(cycle.startDate), {
                     addSuffix: true,
-                    locale: ptBR,
                   })}
                 </td>
                 <td>
